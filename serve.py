@@ -12,8 +12,10 @@ DIST = Path(__file__).parent / "dist"
 
 app = FastAPI(docs_url=None, redoc_url=None)
 
-# Mount static assets (JS, CSS, images)
-app.mount("/assets", StaticFiles(directory=DIST / "assets"), name="assets")
+# Mount static assets (JS, CSS, images) — only if the directory exists
+_assets_dir = DIST / "assets"
+if _assets_dir.exists():
+    app.mount("/assets", StaticFiles(directory=_assets_dir), name="assets")
 
 
 @app.get("/health")
