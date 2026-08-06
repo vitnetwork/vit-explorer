@@ -379,7 +379,7 @@ function SearchView() {
               ['Consensus Votes', (b.consensus_votes as unknown[]).length || 'none'],
             ].map(([label, val]) => (
               <div className="detail-row" key={label as string}>
-                <div className="detail-label">{label}</div>
+                <div className="detail-label">{String(label)}</div>
                 <div className="detail-val mono">{String(val)}</div>
               </div>
             ))}
@@ -399,7 +399,7 @@ function SearchView() {
               ['Nonce', acc.nonce],
             ].map(([label, val]) => (
               <div className="detail-row" key={label as string}>
-                <div className="detail-label">{label}</div>
+                <div className="detail-label">{String(label)}</div>
                 <div className="detail-val mono">{String(val)}</div>
               </div>
             ))}
@@ -422,7 +422,7 @@ function SearchView() {
               ['Time', fmtDate(tx.timestamp)],
             ].map(([label, val]) => (
               <div className="detail-row" key={label as string}>
-                <div className="detail-label">{label}</div>
+                <div className="detail-label">{String(label)}</div>
                 <div className="detail-val mono">{String(val)}</div>
               </div>
             ))}
@@ -455,7 +455,7 @@ function BlockDetail({ block, onClose }: { block: Block; onClose: () => void }) 
             ['Consensus Votes', block.consensus_votes.length || 'none'],
           ].map(([label, val]) => (
             <div className="detail-row" key={label as string}>
-              <div className="detail-label">{label}</div>
+              <div className="detail-label">{String(label)}</div>
               <div className="detail-val mono">{String(val)}</div>
             </div>
           ))}
