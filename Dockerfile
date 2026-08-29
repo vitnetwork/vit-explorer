@@ -3,10 +3,10 @@ FROM node:20-alpine AS builder
 WORKDIR /app
 
 COPY package*.json ./
-RUN npm install
+RUN npm ci --include=dev --registry=https://registry.npmjs.org/
 
 COPY . .
-RUN npm run build
+RUN npm run build -- --emptyOutDir
 
 # ── Stage 2: Serve with lightweight Python/FastAPI ─────────────────────────
 FROM python:3.11-slim
